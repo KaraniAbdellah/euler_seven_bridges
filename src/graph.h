@@ -1,5 +1,5 @@
-#define BRIDGES
 #ifndef BRIDGES
+#define BRIDGES
 
 
 	typedef struct node {
@@ -9,11 +9,12 @@
 	} node;
 
 	typedef struct list {
-		struct *node head;
+		struct node *head;
 	} list;
 	
 	
-	
+	void display_graph(list **graph, int n);
+	void add_node(int s, int d, list **graph);
 	
 	
 	
