@@ -13,8 +13,9 @@
 	} list;
 	
 	
-	void display_graph(list **graph, int n);
+	void display_graph(list *graph, int n);
 	void add_node(int s, int d, list **graph);
+	list *init_graph(int n);
 	
 	
 	

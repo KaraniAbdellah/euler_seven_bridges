@@ -9,6 +9,9 @@
 list *init_graph(int n) {
 	if (n == 0) return NULL;
 	list *graph = (list *) malloc(sizeof(list) * n);
+	for (int i = 0; i < n; i++) {
+		graph[i].head = NULL;
+	}
 	return graph;
 }
 
@@ -16,7 +19,7 @@ list *init_graph(int n) {
 void add_node(int s, int d, list **graph) {
 	
 	// check if the graph initialize
-	if (*graph == NULL) {
+	if (graph == NULL) {
 		printf("Graph is not initialize\n"); return;
 	}
 	
@@ -27,7 +30,7 @@ void add_node(int s, int d, list **graph) {
 	}
 	
 	// add node in adjacency list
-	new_node->data = s;
+	new_node->data = d;
 	new_node->next = NULL;
 	if (graph[s]->head == NULL) {
 		graph[s]->head = new_node;
@@ -45,13 +48,14 @@ void display_graph(list *graph, int n) {
 	}
 	
 	for (int i = 0; i < n; i++) {
-		node *temp = graph[i]->head;
-		for (int j = 0; j < n; j++) {
-			printf("%d", temp->data);
+		node *temp = graph[i].head;
+		printf("[%d]: ", i);
+		for (int j = 0; j < n && temp != NULL; j++) {
+			printf("%d --> ", temp->data);
 			temp = temp->next;
 		}
+		printf("NULL\n");
 	}
-	
 	
 }
 
