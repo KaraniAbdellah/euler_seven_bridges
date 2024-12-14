@@ -1,12 +1,13 @@
-// Make The Graph for the problem 
 // Make The Solution (your own solution)
-// Make The Documentation for the problem
+// Make The Documentation for the problem --> website [infinty free]
 
 
 
 
 
 
+// how to pass thought the 7 bridges without crossing 
+// anu bridge more than one. [linkedin]
 
 
 

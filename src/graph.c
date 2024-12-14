@@ -50,7 +50,7 @@ void display_graph(list *graph, int n) {
 	for (int i = 0; i < n; i++) {
 		node *temp = graph[i].head;
 		printf("[%d]: ", i);
-		for (int j = 0; j < n && temp != NULL; j++) {
+		while (temp != NULL) {
 			printf("%d --> ", temp->data);
 			temp = temp->next;
 		}
@@ -58,6 +58,60 @@ void display_graph(list *graph, int n) {
 	}
 	
 }
+
+
+
+int isEulerPath(list *graph, int n) {
+	
+	int nbrOfOddNode = 0;
+	int count = 0;
+	for (int i = 0; i < n; i++) {
+		node *temp = graph[i];
+		while (temp != NULL) {
+			temp = temp->next;
+			count++;
+		}
+		// is that node odd?
+		if (count % 2 != 0) nbrOfOddNode++;
+	}
+	
+	// acceppt the euler path
+	if (nbrOfOddNode == 2) return 1;
+	else return -1;
+	
+}
+
+
+int isEulerCircuit(list *graph, int n) {
+	
+	int count = 0;
+	for (int i = 0; i < n; i++) {
+		node *temp = graph[i];
+		while (temp != NULL) {
+			temp = temp->next;
+			count++;
+		}
+		// is that node even?
+		if (count % 2 == 0) return -1;
+	}
+	
+	// acceppt euler circuit
+	return 1;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
