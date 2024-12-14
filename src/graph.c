@@ -66,7 +66,7 @@ int isEulerPath(list *graph, int n) {
 	int nbrOfOddNode = 0;
 	int count = 0;
 	for (int i = 0; i < n; i++) {
-		node *temp = graph[i];
+		node *temp = graph[i].head;
 		while (temp != NULL) {
 			temp = temp->next;
 			count++;
@@ -75,9 +75,9 @@ int isEulerPath(list *graph, int n) {
 		if (count % 2 != 0) nbrOfOddNode++;
 	}
 	
-	// acceppt the euler path
+	// accept the euler path
 	if (nbrOfOddNode == 2) return 1;
-	else return -1;
+	else return 0;
 	
 }
 
@@ -86,16 +86,16 @@ int isEulerCircuit(list *graph, int n) {
 	
 	int count = 0;
 	for (int i = 0; i < n; i++) {
-		node *temp = graph[i];
+		node *temp = graph[i].head;
 		while (temp != NULL) {
 			temp = temp->next;
 			count++;
 		}
 		// is that node even?
-		if (count % 2 == 0) return -1;
+		if (count % 2 == 0) return 0;
 	}
 	
-	// acceppt euler circuit
+	// accept euler circuit
 	return 1;
 	
 }

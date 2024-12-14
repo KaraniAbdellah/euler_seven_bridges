@@ -16,6 +16,8 @@
 	void display_graph(list *graph, int n);
 	void add_node(int s, int d, list **graph);
 	list *init_graph(int n);
+	int isEulerPath(list *graph, int n);
+	int isEulerCircuit(list *graph, int n);
 	
 	
 	
