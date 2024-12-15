@@ -1,13 +1,22 @@
-// Make The Solution (your own solution)
-// Make The Documentation for the problem --> website [infinty free]
 
-
-
-
+// Make A linkedin Post
 
 
 // how to pass thought the 7 bridges without crossing 
 // anu bridge more than one. [linkedin]
+
+
+
+The Seven Bridges of Königsberg 🧩
+
+History 📜
+The Seven Bridges of Königsberg was a puzzle from the 18th century. The city (now Kaliningrad, Russia) had seven bridges connecting different areas. The challenge was to walk across all bridges without repeating any. Many tried, but no one could solve it.
+
+
+
+Euler’s Proposition 🔢
+In 1736, mathematician Leonhard Euler solved the puzzle by creating graph theory. He showed that it’s impossible to walk across all the bridges without repeating because each area (or point) must have an even number of bridges. Since the bridges in Königsberg didn't follow this rule, it was impossible to find such a path.
+
 
 
 
