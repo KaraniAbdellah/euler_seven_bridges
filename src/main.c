@@ -25,11 +25,12 @@ int main() {
 	// Display the Graph
 	display_graph(graph, n);
 	
-	// Check if the graph accept Euler Path & Euler Circuit
+	// Check if the graph accept Euler Path 
 	if (isEulerPath(graph, n)) {
 		printf("✅ this graph accept euler path\n");
 	} else printf("🚫 this graph does not accept euler path\n");
 	
+	// Check if the graph accept Euler Circuit
 	if (isEulerCircuit(graph, n)) {
 		printf("✅ this graph accept euler circuit\n");
 	} else printf("🚫 this graph does not accept circuit path\n");
