@@ -7,23 +7,28 @@
 
 
 list *init_graph(int n) {
-	if (n == 0) return NULL;
+
+	if (n <= 0) return NULL;
 	list *graph = (list *) malloc(sizeof(list) * n);
+	if (graph == NULL) return NULL;
+	
 	for (int i = 0; i < n; i++) {
 		graph[i].head = NULL;
 	}
 	return graph;
+	
 }
 
 
 void add_node(int s, int d, list **graph) {
 	
+	
 	// check if the graph initialize
-	if (graph == NULL) {
+	if (graph == NULL || *graph == NULL) {
 		printf("Graph is not initialize\n"); return;
 	}
 	
-	// create node
+	// create new node
 	node *new_node = (node *) malloc(sizeof(node));
 	if (new_node == NULL) {
 		printf("can not create a node\n"); return;
@@ -32,11 +37,11 @@ void add_node(int s, int d, list **graph) {
 	// add node in adjacency list
 	new_node->data = d;
 	new_node->next = NULL;
-	if (graph[s]->head == NULL) {
-		graph[s]->head = new_node;
+	if ((*graph)[s].head == NULL) {
+		(*graph)[s].head = new_node;
 	} else {
-		new_node->next = graph[s]->head;
-		graph[s]->head = new_node;
+		new_node->next = (*graph)[s].head;
+		(*graph)[s].head = new_node;
 	}
 	
 }
@@ -44,7 +49,8 @@ void add_node(int s, int d, list **graph) {
 void display_graph(list *graph, int n) {
 	
 	if (graph == NULL) {
-		printf("Graph is not initialize");
+		printf("Graph is not initialized\n");
+		return;
 	}
 	
 	for (int i = 0; i < n; i++) {
@@ -63,10 +69,11 @@ void display_graph(list *graph, int n) {
 
 int isEulerPath(list *graph, int n) {
 	
-	int nbrOfOddNode = 0;
-	int count = 0;
+	int nbrOfOddNode = 0, count;
+	
 	for (int i = 0; i < n; i++) {
 		node *temp = graph[i].head;
+		count = 0;
 		while (temp != NULL) {
 			temp = temp->next;
 			count++;
@@ -91,8 +98,9 @@ int isEulerCircuit(list *graph, int n) {
 			temp = temp->next;
 			count++;
 		}
-		// is that node even?
-		if (count % 2 == 0) return 0;
+		// is that node not even?
+		if (count % 2 != 0) return 0;
+		count = 0;
 	}
 	
 	// accept euler circuit
