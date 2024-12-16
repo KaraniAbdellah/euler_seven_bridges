@@ -16,6 +16,7 @@ int main() {
 	add_node(0, 1, &graph);
 	add_node(0, 4, &graph);
 	add_node(0, 2, &graph);
+	add_node(0, 5, &graph);
 	add_node(0, 3, &graph);
 	add_node(1, 2, &graph);
 	add_node(2, 1, &graph);
